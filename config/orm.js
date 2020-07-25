@@ -1,52 +1,42 @@
 var connection = require("../config/connection.js");
 
 var orm = {
-    selectAll: function(whatToSelect, tableInput) {
+    selectAll: function(whatToSelect, tableInput, cb) {
       var queryString = "SELECT ?? FROM ??";
       connection.query(queryString, [whatToSelect, tableInput], function(err, result) {
-        if (err) throw err;
-        console.log(result);
-      });
+        if (err) {
+          throw err;
+      }
+      console.log(result);
+      cb(result);
+    });
     },
-    insertOne: function(tableInput, colToSearch, valOfCol) {
-      var queryString = "SELECT * FROM ?? WHERE ?? = ?";
+    insertOne: function(tableInput, colToSearch, cb) {
+      var queryString = "INSERT INTO ?? FROM ??";
   
       console.log(queryString);
   
-      connection.query(queryString, [tableInput, colToSearch, valOfCol], function(err, result) {
-        if (err) throw err;
+      connection.query(queryString, [tableInput, colToSearch], function(err, result) {
+        if (err) {
+          throw err;
+        }
         console.log(result);
+        cb(result);
       });
     },
-    UpdateOne: function(whatToSelect, tableOne, tableTwo, onTableOneCol, onTableTwoCol) {
-      var queryString = "SELECT ?? FROM ?? AS tOne";
-      queryString += " LEFT JOIN ?? AS tTwo";
-      queryString += " ON tOne.?? = tTwo.??";
-  
+    updateOne: function(whatToSelect, tableOne, tableid, cb) {
+      var queryString = "UPDATE ?? FROM ?? WHERE ??";
+      
       console.log(queryString);
   
-      connection.query(queryString, [whatToSelect, tableOne, tableTwo, onTableOneCol, onTableTwoCol], function(
-        err,
-        result
-      ) {
-        if (err) throw err;
+      connection.query(queryString, [whatToSelect, tableOne, tableid], function(err, result) {
+        if (err) {
+          throw err;
+        }
         console.log(result);
+        cb(result);
       });
     }
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = orm;
