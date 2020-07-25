@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
     res.send('Hello World!');
     console.log(req);
     // console.log(res);
+    // res.render() renders HTML views. Handlebar are html views "index"
 })
 
 router.post("/", urlencodedParser,(req, res) => {
