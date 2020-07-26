@@ -7,20 +7,30 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 router.get('/', (req, res) => {
+    burger.all(function(data) {
+        var hbsObject = {
+          burgers: data
+        };
+        console.log(hbsObject);
+        res.render("index", hbsObject);
+      });
+    });
+    
+    
     // res.render("index", { burgers: data });
 
-    res.send('Hello Doc!');
+    // res.send('Hello Doc!');
     // console.log(req);
     // console.log(res);
     // res.render() renders HTML views. Handlebar are html views "index"
-})
+// })
 
-router.post("/", urlencodedParser,(req, res) => {
+router.post("/api/burgers", urlencodedParser,(req, res) => {
     res.send("Mic check!");
     // console.log(req.body);
 })
 
-router.post("/home", (req, res) => {
+router.put("/", (req, res) => {
     res.send("yo!");
     // console.log(req.body);
 })
