@@ -2,13 +2,15 @@
 
 <h2>Mic check 1, 2</h2>
 
-{{!-- <ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      <p>ID: {{id}}</p>
+      <p>Burger: {{burger}}</p>
+      {{!-- {{> cats/cat-block devoured=true}} --}}
     {{/unless}}
   {{/each}}
-</ul> --}}
+</ul>
 
 <h2>Cats that are sleepy!</h2>
 

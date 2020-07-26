@@ -7,20 +7,22 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 router.get('/', (req, res) => {
-    res.send('Hello World!');
-    console.log(req);
+    // res.render("index", { burgers: data });
+
+    res.send('Hello Doc!');
+    // console.log(req);
     // console.log(res);
     // res.render() renders HTML views. Handlebar are html views "index"
 })
 
 router.post("/", urlencodedParser,(req, res) => {
     res.send("Mic check!");
-    console.log(req.body);
+    // console.log(req.body);
 })
 
 router.post("/home", (req, res) => {
     res.send("yo!");
-    console.log(req.body);
+    // console.log(req.body);
 })
 
 // CRUD = get, post, update, delete
