@@ -15,46 +15,34 @@ router.get('/', (req, res) => {
         res.render("index", hbsObject);
       });
     });
-    
-    
-    // res.render("index", { burgers: data });
-
-    // res.send('Hello Doc!');
-    // console.log(req);
-    // console.log(res);
-    // res.render() renders HTML views. Handlebar are html views "index"
-// })
 
 router.post("/api/burgers", urlencodedParser,(req, res) => {
-    res.send("Mic check!");
+    burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result) {
+        res.json({ id: result.insertID})
+    })
     // console.log(req.body);
 })
 
-router.put("/", (req, res) => {
-    res.send("yo!");
-    // console.log(req.body);
-})
+router.put("/api/burgers/:id", (req, res) => {
+    var condition = "id = " + req.params.id;
 
-// CRUD = get, post, update, delete
-// Create all our routes and set up logic within those routes where required.
-// router.get("/", function(req, res) {
-//     cat.all(function(data) {
-//       var hbsObject = {
-//         cats: data
-//       };
-//       console.log(hbsObject);
-    //   res.render("index", hbsObject);
-//     });
-//   });
+  console.log("condition", condition);
 
+  burger.updateOne(
+    {
+      devoured: req.body.devoured
+    },
+    condition,
+    function(result) {
+      if (result.changedRows === 0) {
+        // If no rows were changed, then the ID must not exist, so 404
+        return res.status(404).end();
+      }
+      res.status(200).end();
 
-
-
-
-
-
-
-
-
+    }
+  );
+});
+    
 // Export routes for server.js to use.
 module.exports = router;
