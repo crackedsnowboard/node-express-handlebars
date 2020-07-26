@@ -33,7 +33,7 @@
     <ul>
       {{#each burgers}}
       {{#unless devoured}}
-      {{> burger/burger-block devoured=false}}
+      {{> burgers/burger-block devoured=false}}
       {{!-- <p>ID: {{id}}</p>
       <p>Burger: {{burger}}</p> --}}
       <button data-id="{{this.id}}" class="delquote">Consume!</button>
@@ -49,7 +49,7 @@
     <ul>
       {{#each burgers}}
       {{#if devoured}}
-      {{> burger/burger-block2 devoured=true}}
+      {{> burgers/burger-block2 devoured=true}}
       {{/if}}
       {{/each}}
     </ul>
