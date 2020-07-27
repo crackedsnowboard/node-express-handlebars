@@ -4,6 +4,9 @@ I created a burger logger with MySQL, Node, Express, Handlebars and a homemade O
 ## Lesssons Learned
 This was an important journey on my development path as I was confronted with an array of new technologies and skills to improve. This was my first instance of hosting a MySQL database in Heroku and query data from an client side HTML using Handlebars. In addition, I built a custom ORM that should help me appreciate the functionality of Sequelize moving forward. Fun times!
 
+## Link to deployed Burger Choice
+[Burger-Choice](https://glacial-wildwood-18849.herokuapp.com/)
+
 ## Installation
 I used MySQL to store the data and node.js, express.js, and handlebars to build the client - server nexus. Finally after testing the application on my local machines, I deployed the app to Heroku. 
 
@@ -41,14 +44,11 @@ f<div class="row">
 </div>
 ```
 
-### Link to deployed Employee Tracker
-[Employee-Tracker](https://glacial-wildwood-18849.herokuapp.com/)
-
-#### GIF of Applicaton
+### GIF of Applicaton
 ![App](https://media.giphy.com/media/d5SiMG2NvvS5xNsiz7/giphy.gif)
 
 
-#### Author Links
+## Author Links
 [LinkedIn](linkedin.com/in/joel-mathen/) <br>
 [GitHub](https://github.com/crackedsnowboard)
 
