@@ -45,7 +45,7 @@ f<div class="row">
 [Employee-Tracker](https://glacial-wildwood-18849.herokuapp.com/)
 
 #### GIF of Applicaton
-![App](https://media.giphy.com/media/ifSwVbb5ci6NgekwtH/giphy.gif)
+![App](https://media.giphy.com/media/d5SiMG2NvvS5xNsiz7/giphy.gif)
 
 
 #### Author Links
