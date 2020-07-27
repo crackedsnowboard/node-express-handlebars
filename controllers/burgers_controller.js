@@ -6,7 +6,7 @@ var router = express.Router();
 // Import the model (burger.js) to use its database functions.
 var burger = require("../models/burger.js");
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
     burger.selectAll(function(data) {
         var hbsObject = {
           burgers: data
@@ -16,14 +16,14 @@ router.get('/', (req, res) => {
       });
     });
 
-router.post("/api/burgers", urlencodedParser,(req, res) => {
+router.post("/api/burgers", (req, res) => {
     burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result) {
         res.json({ id: result.insertID})
     })
     // console.log(req.body);
 })
 
-router.put("/api/burgers/:id", (req, res) => {
+router.put("/api/devour/:id", (req, res) => {
     var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
